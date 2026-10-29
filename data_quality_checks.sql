@@ -16,21 +16,21 @@ HAVING COUNT(*) > 1
 ORDER BY row_count DESC;
 
 -- inspect duplicate rows
-SELECT *
+SELECT
+    campaign_date,
+    campaign,
+    channel,
+    COUNT(*) AS row_count,
+    MIN(clicks) AS min_clicks,
+    MAX(clicks) AS max_clicks,
+    MIN(spend) AS min_spend,
+    MAX(spend) AS max_spend,
+    MIN(revenue) AS min_revenue,
+    MAX(revenue) AS max_revenue
 FROM marketing_campaigns
-WHERE (campaign_date, campaign, channel) IN (
-    SELECT
-        campaign_date,
-        campaign,
-        channel
-    FROM marketing_campaigns
-    GROUP BY
-        campaign_date,
-        campaign,
-        channel
-    HAVING COUNT(*) > 1
-)
-ORDER BY campaign_date, campaign, channel;
+GROUP BY campaign_date, campaign, channel
+HAVING COUNT(*) > 1
+ORDER BY row_count DESC;
 
 -- check for missing values
 SELECT
