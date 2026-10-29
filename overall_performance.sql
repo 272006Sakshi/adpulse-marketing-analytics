@@ -1,3 +1,14 @@
+-- overall data profile
+SELECT
+    COUNT(*) AS total_rows,
+    COUNT(DISTINCT campaign) AS unique_campaigns,
+    COUNT(DISTINCT channel) AS unique_channels,
+    MIN(campaign_date) AS first_date,
+    MAX(campaign_date) AS last_date,
+    SUM(spend) AS total_spend,
+    SUM(revenue) AS total_revenue
+FROM marketing_campaigns;
+
 -- Overall marketing performance
 SELECT
     SUM(impressions) AS total_impressions,
@@ -20,13 +31,3 @@ SELECT
     ) AS roas
 FROM marketing_campaigns;   
 
--- overall data profile
-SELECT
-    COUNT(*) AS total_rows,
-    COUNT(DISTINCT campaign) AS unique_campaigns,
-    COUNT(DISTINCT channel) AS unique_channels,
-    MIN(campaign_date) AS first_date,
-    MAX(campaign_date) AS last_date,
-    SUM(spend) AS total_spend,
-    SUM(revenue) AS total_revenue
-FROM marketing_campaigns;
