@@ -28,6 +28,11 @@ SELECT
     ) AS cpa,
     ROUND(
         SUM(revenue) / NULLIF(SUM(spend), 0), 2
-    ) AS roas
+    ) AS roas,
+    ROUND(
+    100.0 * SUM(conversions)
+    / NULLIF(SUM(clicks), 0),
+    2
+) AS conversion_rate_pct
 FROM marketing_campaigns;   
 
