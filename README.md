@@ -90,6 +90,6 @@ These are preliminary findings from synthetic data. The exceptionally high Email
 - No missing values were found in the checked columns.
 - Four repeated `campaign_date + campaign + channel` combinations were identified. Their associated metric values differed, so they require investigation rather than automatic deletion.
 
-Disclaimer
 
-This project used synthetic data, so the findings are descriptive and should not be treated as verified results from a real marketing business.
+
+Note: This project used synthetic data, so the findings are descriptive and should not be treated as verified results from a real marketing business.
